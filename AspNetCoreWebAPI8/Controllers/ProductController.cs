@@ -7,9 +7,11 @@ namespace AspNetCoreWebAPI8.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+	//ProductController class inherits from ControllerBase.
+	public class ProductController : ControllerBase
     {
-        private readonly ProdContext _dbcontext;
+		//inject the database context through the constructor of the controller
+		private readonly ProdContext _dbcontext;
         public ProductController(ProdContext productcontext)
         {
             _dbcontext = productcontext;
@@ -44,11 +46,11 @@ namespace AspNetCoreWebAPI8.Controllers
 
 		// Post : api/Products
 		[HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct(Product products)
         {
-            _dbcontext.Products.Add(product);
+            _dbcontext.Products.Add(products);
             await _dbcontext.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Product_Id }, product);
+            return CreatedAtAction(nameof(GetProduct), new { id = products.Product_Id }, products);
         }
 
 		// Put : api/Products/2

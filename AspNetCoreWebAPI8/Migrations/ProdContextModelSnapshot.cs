@@ -24,24 +24,26 @@ namespace AspNetCoreWebAPI8.Migrations
 
             modelBuilder.Entity("AspNetCoreWebAPI8.Models.Product", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<int>("Product_Id")
+                        .HasColumnType("int")
+                        .HasColumnName("Product_Id");
 
                     b.Property<decimal?>("Rate")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(8,2)")
+                        .HasColumnName("Rate");
 
                     b.Property<string>("TaxCode")
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("char(2)")
+                        .HasColumnName("TaxCode");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Title");
 
-                    b.HasKey("Id");
+                    b.HasKey("Product_Id")
+                        .HasName("PK_Product");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 #pragma warning restore 612, 618
         }

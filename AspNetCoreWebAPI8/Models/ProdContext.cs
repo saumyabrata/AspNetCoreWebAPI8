@@ -10,13 +10,11 @@ namespace AspNetCoreWebAPI8.Models
 		public DbSet<Product> Products { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
-
 		{
-
 			modelBuilder.Entity<Product>(entity =>
 			{
 
-				entity.ToTable("Product");
+				entity.ToTable("Products");
 				entity.HasKey(p => p.Product_Id).HasName("PK_Product");
 				entity.Property(p => p.Product_Id)
 				.HasColumnName("Product_Id")

@@ -14,15 +14,14 @@ namespace AspNetCoreWebAPI8.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Product_Id = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Rate = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    TaxCode = table.Column<string>(type: "nvarchar(1)", nullable: true)
+                    Rate = table.Column<decimal>(type: "decimal(8,2)", nullable: true),
+                    TaxCode = table.Column<string>(type: "char(2)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Product", x => x.Product_Id);
                 });
         }
 
