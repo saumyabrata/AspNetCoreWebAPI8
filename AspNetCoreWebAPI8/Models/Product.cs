@@ -1,7 +1,7 @@
 ﻿namespace AspNetCoreWebAPI8.Models
 {
-    public class Product
-    {
+    public class Product : BaseEntity
+	{
         public int Product_Id { get; set; }
         public string? Title { get; set; }
         public decimal? Rate { get; set; }

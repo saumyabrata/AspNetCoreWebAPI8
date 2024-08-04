@@ -5,7 +5,7 @@
 namespace AspNetCoreWebAPI8.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,7 +14,8 @@ namespace AspNetCoreWebAPI8.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Product_Id = table.Column<int>(type: "int", nullable: false),
+                    Product_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rate = table.Column<decimal>(type: "decimal(8,2)", nullable: true),
                     TaxCode = table.Column<string>(type: "char(2)", nullable: true)

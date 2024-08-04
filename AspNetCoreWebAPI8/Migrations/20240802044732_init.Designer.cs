@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetCoreWebAPI8.Migrations
 {
     [DbContext(typeof(ProdContext))]
-    [Migration("20240802024409_Initial")]
-    partial class Initial
+    [Migration("20240802044732_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,8 +28,11 @@ namespace AspNetCoreWebAPI8.Migrations
             modelBuilder.Entity("AspNetCoreWebAPI8.Models.Product", b =>
                 {
                     b.Property<int>("Product_Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("Product_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Product_Id"));
 
                     b.Property<decimal?>("Rate")
                         .HasColumnType("decimal(8,2)")
